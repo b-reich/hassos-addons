@@ -18,5 +18,18 @@
       ],
       "datasourceTemplate": "docker"
     }
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": [
+        "^Dockerfile$"
+      ],
+      "matchStrings": [
+        "NODE_EXPORTER_VERSION=(?<currentValue>.*?)\n"
+      ],
+      "depNameTemplate": "prometheus/node_exporter",
+      "datasourceTemplate": "github-releases"
+    }
   ]
 }
